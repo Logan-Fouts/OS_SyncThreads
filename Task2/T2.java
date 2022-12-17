@@ -2,6 +2,10 @@ package Task2;
 
 import java.util.concurrent.Semaphore;
 
+/*
+ * Four semaphores and four threads are used. sA starts with one so it starts first. 
+ * Then each thread waits for a permit, once a thread prints its letter it then release the appropriate permit
+ */
 public class T2 {
     static Semaphore sA = new Semaphore(1);
     static Semaphore sB = new Semaphore(0);
@@ -34,6 +38,7 @@ public class T2 {
             for (int i = 0; i < 10; i++) {
                 try {
                     sA.acquire();
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     System.out.println("Somethings Brokey");
                     e.printStackTrace();
@@ -54,6 +59,7 @@ public class T2 {
             for (int i = 0; i < 5; i++) {
                 try {
                     sB.acquire();
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     System.out.println("Somethings Brokey");
                     e.printStackTrace();
@@ -70,17 +76,19 @@ public class T2 {
             for (int i = 0; i < 10; i++) {
                 try {
                     sC.acquire();
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     System.out.println("Somethings Brokey");
                     e.printStackTrace();
                 }
                 System.out.print("C");
                 if (i == 0 || i == 2 || i == 4 || i == 6 || i == 8) {
-                     sD.release();
+                    sD.release();
                 } else {
                     sA.release();
                 }
-                if (i == 9) System.out.println("\n");
+                if (i == 9)
+                    System.out.println("\n");
             }
         }
     }
@@ -91,6 +99,7 @@ public class T2 {
             for (int i = 0; i < 5; i++) {
                 try {
                     sD.acquire();
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     System.out.println("Somethings Brokey");
                     e.printStackTrace();

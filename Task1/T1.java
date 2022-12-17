@@ -27,6 +27,7 @@ public class T1 {
                 // Try to acuire a permit from sA if not wait.
                 try {
                     sA.acquire();
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     System.out.println("Somethings Brokey: sA count:" + sA.availablePermits() + "  sB count:"
                             + sB.availablePermits());
@@ -46,6 +47,7 @@ public class T1 {
                 // Try to acuire a permit from sB if not wait.
                 try {
                     sB.acquire();
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     System.out.println("Somethings Brokey: sA count:" + sA.availablePermits() + "  sB count:"
                             + sB.availablePermits());
