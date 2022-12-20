@@ -92,7 +92,7 @@ public class T3_Main {
         @Override
         public boolean Send(char msg) {
             try {
-                System.out.println(msg);
+                System.out.print(msg);
             } catch (Exception e) {
                 e.printStackTrace();
                 return false;
