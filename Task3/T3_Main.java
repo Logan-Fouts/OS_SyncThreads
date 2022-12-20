@@ -52,7 +52,6 @@ public class T3_Main {
                     e.printStackTrace();
                 }
                 mq.append(letter);
-                messages.release();
             }
         }
     }
