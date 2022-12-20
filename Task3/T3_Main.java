@@ -102,8 +102,9 @@ public class T3_Main {
 
         @Override
         public char Recv() {
+            char temp = mq.getStart();
             mq.delete();
-            return mq.getStart();
+            return temp;
         }
 
         @Override
